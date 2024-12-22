@@ -18,8 +18,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_ckeditor_5',
+
     'gallery',
+    'comparison',
 ]
+
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': ['heading', '|', 'bold', 'italic', 'link',
+                    'bulletedList', 'numberedList', 'blockQuote', 'fontColor', 'fontBackgroundColor', ],
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -95,4 +105,8 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+CKEDITOR_UPLOAD_PATH = 'uploads/ckeditor/'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DJANGO_ADMIN_THEME = 'light'
