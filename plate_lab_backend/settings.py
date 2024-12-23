@@ -22,6 +22,8 @@ INSTALLED_APPS = [
 
     'gallery',
     'comparison',
+    'informations',
+    'pricing',
 ]
 
 CKEDITOR_5_CONFIGS = {
