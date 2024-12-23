@@ -14,7 +14,7 @@ class Case(models.Model):
 
 class Image(models.Model):
     album = models.ForeignKey(Case, on_delete=models.CASCADE, related_name='images', verbose_name="Case")
-    image = models.ImageField(upload_to='images/', verbose_name="Case image")
+    image = models.ImageField(upload_to='images/cases', verbose_name="Case image")
     caption = models.CharField(max_length=200, blank=True, verbose_name="Image caption")
 
     class Meta:
