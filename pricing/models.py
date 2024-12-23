@@ -17,6 +17,7 @@ class Pricing(models.Model):
         validators=[MinValueValidator(1)],
         default=1
     )
+    is_the_best_price = models.BooleanField(default=False)
 
     def clean(self):
         from django.core.exceptions import ValidationError
