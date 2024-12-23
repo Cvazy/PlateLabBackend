@@ -19,15 +19,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_ckeditor_5',
+    'rest_framework',
 
-    'gallery',
-    'comparison',
-    'informations',
-    'pricing',
     'about',
-    'footer',
     'benefits',
     'cases',
+    'comparison',
+    'gallery',
+    'footer',
+    'informations',
+    'pricing',
 ]
 
 CKEDITOR_5_CONFIGS = {
