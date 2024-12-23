@@ -3,16 +3,16 @@ from django.core.validators import MinValueValidator
 
 
 class Pricing(models.Model):
-    min_photo_qnt = models.IntegerField(
+    min_photo_qnt = models.PositiveIntegerField(
         help_text="Minimum number of photos",
         validators=[MinValueValidator(1)]
     )
-    max_photo_qnt = models.IntegerField(
+    max_photo_qnt = models.PositiveIntegerField(
         help_text="Maximum number of photos (leave blank if not applicable)",
         null=True,
         blank=True
     )
-    price = models.IntegerField(
+    price = models.PositiveIntegerField(
         help_text='Price per photo',
         validators=[MinValueValidator(1)],
         default=1
