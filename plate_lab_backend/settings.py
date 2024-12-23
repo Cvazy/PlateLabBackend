@@ -20,6 +20,7 @@ INSTALLED_APPS = [
 
     'django_ckeditor_5',
     'rest_framework',
+    'drf_yasg',
 
     'about',
     'benefits',
