@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'about',
     'footer',
     'benefits',
+    'cases',
 ]
 
 CKEDITOR_5_CONFIGS = {
