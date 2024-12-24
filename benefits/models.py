@@ -1,9 +1,13 @@
 from django.db import models
-from month.models import MonthField
+from .constants import MONTH_CHOICES
 
 
 class BoostSales(models.Model):
-    month_and_year = MonthField("Month and Year value", help_text="Month/Year")
+    month = models.CharField(
+        max_length=2,
+        choices=MONTH_CHOICES,
+        help_text="Month (without year)"
+    )
     sales_qnt = models.PositiveIntegerField(help_text="Number of sales per month", default=0)
     is_active_updating_the_photo_menu = models.BooleanField(default=False)
 
@@ -11,7 +15,7 @@ class BoostSales(models.Model):
         verbose_name = "Boost Sales"
 
     def __str__(self):
-        return self.month_and_year
+        return self.get_month_display()
 
 
 class UpperBanner(models.Model):
@@ -36,4 +40,3 @@ class LowerBanner(models.Model):
 
     def __str__(self):
         return self.title
-
