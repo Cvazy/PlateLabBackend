@@ -10,6 +10,7 @@ urlpatterns = [
     path('', include('benefits.urls')),
     path('', include('cases.urls')),
     path('', include('comparison.urls')),
+    path('api/v1/email/', include('email_sending.urls')),
     path('', include('footer.urls')),
     path('', include('gallery.urls')),
     path('', include('informations.urls')),
