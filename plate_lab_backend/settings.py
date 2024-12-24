@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'benefits',
     'cases',
     'comparison',
+    'email_sending',
     'gallery',
     'footer',
     'informations',
