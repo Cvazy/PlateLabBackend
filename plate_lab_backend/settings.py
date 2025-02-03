@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'footer',
     'informations',
     'pricing',
+    'parallax',
     'main_banner',
 ]
 

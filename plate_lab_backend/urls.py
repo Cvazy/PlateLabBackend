@@ -17,6 +17,7 @@ urlpatterns = [
     path('', include('gallery.urls')),
     path('', include('informations.urls')),
     path('', include('pricing.urls')),
+    path('', include('parallax.urls')),
     path(
         'api/swagger/',
         schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'
