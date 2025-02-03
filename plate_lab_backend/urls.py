@@ -7,7 +7,9 @@ from .swagger_schema_view import schema_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('about.urls')),
+    path('', include('main_banner.urls')),
     path('', include('benefits.urls')),
+    path('', include('before.urls')),
     path('', include('cases.urls')),
     path('', include('comparison.urls')),
     path('api/v1/email/', include('email_sending.urls')),

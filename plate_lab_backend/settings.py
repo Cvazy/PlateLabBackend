@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     'about',
+    'before',
     'benefits',
     'cases',
     'comparison',
@@ -31,6 +32,7 @@ INSTALLED_APPS = [
     'footer',
     'informations',
     'pricing',
+    'main_banner',
 ]
 
 CKEDITOR_5_CONFIGS = {
