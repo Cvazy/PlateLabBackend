@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Parameters, Restaurant, SwiperElement, ItemFromProductList
+from .models import *
 
 
 class SwiperElementSerializer(serializers.ModelSerializer):
@@ -51,3 +51,9 @@ class ParametersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Parameters
         fields = ['id', 'name', 'start_value', 'end_value']
+
+
+class PartnerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Partner
+        fields = ['id', 'name', 'image']

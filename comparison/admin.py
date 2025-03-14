@@ -12,8 +12,6 @@ class ComparisonForm(forms.ModelForm):
             'price_per_photo': CKEditor5Widget(),
             'convenience_for_restaurants': CKEditor5Widget(),
             'style_and_customization': CKEditor5Widget(),
-            'consistency': CKEditor5Widget(),
-            'adaptability_for_seasonal_menus': CKEditor5Widget(),
         }
 
 

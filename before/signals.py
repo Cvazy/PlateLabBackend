@@ -18,3 +18,11 @@ def delete_image(sender, instance, **kwargs):
         image_path = instance.image.path
         if os.path.exists(image_path):
             os.remove(image_path)
+
+
+@receiver(post_delete, sender=Partner)
+def delete_image(sender, instance, **kwargs):
+    if instance.image:
+        image_path = instance.image.path
+        if os.path.exists(image_path):
+            os.remove(image_path)

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import BoostSales, UpperBanner, LowerBanner
+from .models import BoostSales
 
 
 class BoostSalesSerializer(serializers.ModelSerializer):
@@ -8,15 +8,3 @@ class BoostSalesSerializer(serializers.ModelSerializer):
     class Meta:
         model = BoostSales
         fields = ['id', 'month', 'month_display', 'sales_qnt', 'is_active_updating_the_photo_menu']
-
-
-class UpperBannerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UpperBanner
-        fields = ['id', 'title', 'description', 'image']
-
-
-class LowerBannerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = LowerBanner
-        fields = ['id', 'title', 'description', 'image']

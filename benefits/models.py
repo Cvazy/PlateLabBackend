@@ -16,27 +16,3 @@ class BoostSales(models.Model):
 
     def __str__(self):
         return self.get_month_display()
-
-
-class UpperBanner(models.Model):
-    title = models.CharField(max_length=255, help_text="Benefits upper banner description")
-    description = models.CharField(max_length=255, help_text="Benefits upper banner description")
-    image = models.ImageField(upload_to='images/benefits/', help_text="Benefits upper banner image")
-
-    class Meta:
-        verbose_name = "The upper banner"
-
-    def __str__(self):
-        return self.title
-
-
-class LowerBanner(models.Model):
-    title = models.CharField(max_length=255, help_text="Benefits lower banner description")
-    description = models.CharField(max_length=255, help_text="Benefits lower banner description")
-    image = models.ImageField(upload_to='images/benefits/', help_text="Benefits lower banner image")
-
-    class Meta:
-        verbose_name = "The lower banner"
-
-    def __str__(self):
-        return self.title
