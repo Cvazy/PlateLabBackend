@@ -1,0 +1,10 @@
+{% extends 'admin/change_list.html' %}
+
+{% block object-tools %}
+<div style="display: flex; justify-content: start">
+    <a href="{% url 'admin:gallery_bulk_upload' %}" class="button">
+        Загрузить множество изображений
+    </a>
+</div>
+{{ block.super }}
+{% endblock %} 

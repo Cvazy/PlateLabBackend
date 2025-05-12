@@ -16,9 +16,11 @@ class Image(models.Model):
     album = models.ForeignKey(Case, on_delete=models.CASCADE, related_name='images', verbose_name="Case")
     image = models.ImageField(upload_to='images/cases', verbose_name="Case image")
     caption = models.CharField(max_length=200, blank=True, verbose_name="Image caption")
+    order = models.PositiveIntegerField(default=0, blank=False, null=False, verbose_name="Order")
 
     class Meta:
         verbose_name = "Case image"
+        ordering = ['order']
 
     def __str__(self):
         return f"Image in {self.album.restaurant_name} ({self.caption})"

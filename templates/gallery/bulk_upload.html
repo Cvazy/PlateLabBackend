@@ -1,0 +1,77 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls static admin_modify %}
+
+{% block extrahead %}{{ block.super }}
+<script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+{{ media }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filesInput = document.getElementById('id_files');
+    const fileCounter = document.getElementById('file_counter');
+    const submitButton = document.querySelector('input[type="submit"]');
+    
+    function updateFileCounter() {
+        const count = filesInput.files.length;
+        fileCounter.textContent = count > 0 ? 
+            count + ' файл' + (count > 1 ? 'ов' : '') + ' выбрано' : 
+            'Файлы не выбраны';
+        
+        submitButton.disabled = count === 0;
+    }
+    
+    updateFileCounter();
+    filesInput.addEventListener('change', updateFileCounter);
+});
+</script>
+{% endblock %}
+
+{% block extrastyle %}{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}"/>
+<style>
+.file-info {
+    margin-top: 10px;
+    font-style: italic;
+    color: #666;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+    {% if messages %}
+    <ul class="messagelist">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+    <div class="module aligned">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="form-row">
+                <div class="fieldBox">
+                    <label for="id_description" class="required">Описание для всех изображений:</label>
+                    <input type="text" name="description" id="id_description" class="vTextField" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="fieldBox">
+                    <label for="id_files" class="required">Выберите изображения для загрузки:</label>
+                    <input type="file" name="files" id="id_files" multiple accept="image/*" required>
+                    <p id="file_counter" class="file-info">Файлы не выбраны</p>
+                    <div class="help">Удерживайте Ctrl (или Command на Mac), чтобы выбрать несколько файлов</div>
+                </div>
+            </div>
+            
+            <div class="submit-row">
+                <input type="submit" class="default" value="Загрузить" disabled>
+                <a href="{% url 'admin:gallery_gallery_changelist' %}" class="closelink">Отмена</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %} 

@@ -5,7 +5,10 @@ from .models import Case, Image
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
-        fields = ['id', 'image', 'caption']
+        fields = ['id', 'image', 'caption', 'album', 'order']
+        extra_kwargs = {
+            'album': {'write_only': True}
+        }
 
 
 class CaseSerializer(serializers.ModelSerializer):
